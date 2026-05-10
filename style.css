@@ -1,0 +1,143 @@
+/* ═══════════════════════════════════════════
+   Light-mode theme for Memory Allocator
+   ═══════════════════════════════════════════ */
+
+.root-pane {
+    -fx-background-color: #F2F3F5;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* ── Header ── */
+.header {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #DDD;
+    -fx-border-width: 0 0 1 0;
+}
+.title-label {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+.badge {
+    -fx-font-size: 11px;
+    -fx-text-fill: #4A90D9;
+    -fx-border-color: #4A90D9;
+    -fx-border-radius: 4;
+    -fx-padding: 2 8;
+}
+
+/* ── Cards ── */
+.card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-padding: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 2);
+}
+.card-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+.field-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #888;
+}
+.section-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* ── Panels ── */
+.controls-panel, .tables-panel, .center-panel {
+    -fx-background-color: #F2F3F5;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+    -fx-background-color: #4A90D9;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+.btn-primary:hover { -fx-background-color: #3A7BC8; }
+
+.btn-success {
+    -fx-background-color: #2ECC71;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+.btn-success:hover { -fx-background-color: #27AE60; }
+
+.btn-danger {
+    -fx-background-color: #E74C3C;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: #C0392B; }
+
+.btn-ghost {
+    -fx-background-color: #E8E8E8;
+    -fx-text-fill: #555;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+.btn-ghost:hover { -fx-background-color: #D5D5D5; }
+
+.btn-small {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E74C3C;
+    -fx-padding: 2 6;
+    -fx-cursor: hand;
+    -fx-font-size: 11px;
+}
+
+/* ── Text fields & combos ── */
+.text-field {
+    -fx-background-color: #FAFAFA;
+    -fx-border-color: #DDD;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 5 8;
+}
+.text-field:focused {
+    -fx-border-color: #4A90D9;
+}
+.combo-box {
+    -fx-background-color: #FAFAFA;
+    -fx-border-color: #DDD;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+/* ── TextAreas (monospace tables) ── */
+.mono-area {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-background-color: #FAFAFA;
+    -fx-border-color: #DDD;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+/* ── Memory box ── */
+.memory-box {
+    -fx-background-color: #FAFAFA;
+    -fx-border-color: #CCC;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 2;
+}
+
+/* ── ScrollPanes (remove extra borders) ── */
+.scroll-clean {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.scroll-clean > .viewport {
+    -fx-background-color: transparent;
+}

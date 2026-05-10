@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controller"
+            styleClass="root-pane">
+
+    <!-- ════════ TOP — Title ════════ -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="header">
+            <padding><Insets top="10" bottom="10" left="20" right="20"/></padding>
+            <Label text="Memory Allocation Simulator" styleClass="title-label"/>
+            <Label text="Segmentation" styleClass="badge"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Unit:" styleClass="field-label" style="-fx-text-fill:#555;"/>
+            <ComboBox fx:id="unitCombo" onAction="#onUnitChanged" prefWidth="90"/>
+        </HBox>
+    </top>
+
+    <!-- ════════ LEFT — Controls ════════ -->
+    <left>
+        <ScrollPane fitToWidth="true" prefWidth="300" styleClass="scroll-clean">
+            <VBox spacing="12" styleClass="controls-panel">
+                <padding><Insets topRightBottomLeft="12"/></padding>
+
+                <!-- 1. Memory Size -->
+                <VBox spacing="6" styleClass="card">
+                    <Label text="1.  Memory Configuration" styleClass="card-title"/>
+                    <Label fx:id="memSizeLabel" text="Total Memory Size" styleClass="field-label"/>
+                    <HBox spacing="6">
+                        <TextField fx:id="memSizeField" promptText="e.g. 1024" text="1024" HBox.hgrow="ALWAYS"/>
+                        <Button text="Set" onAction="#onSetMemory" styleClass="btn-primary"/>
+                    </HBox>
+                </VBox>
+
+                <!-- 2. Holes -->
+                <VBox spacing="6" styleClass="card">
+                    <Label text="2.  Add Hole" styleClass="card-title"/>
+                    <Label text="Starting Address / Size" styleClass="field-label"/>
+                    <HBox spacing="6">
+                        <TextField fx:id="holeStartField" promptText="Start" HBox.hgrow="ALWAYS"/>
+                        <TextField fx:id="holeSizeField"  promptText="Size"  HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                    <Button text="+ Add Hole" onAction="#onAddHole" styleClass="btn-success"/>
+                </VBox>
+
+                <!-- 3. Process -->
+                <VBox spacing="6" styleClass="card">
+                    <Label text="3.  Add Process" styleClass="card-title"/>
+                    <Label text="Process Name" styleClass="field-label"/>
+                    <TextField fx:id="procNameField" promptText="e.g. P1"/>
+                    <Label text="Segments" styleClass="field-label"/>
+                    <VBox fx:id="segmentsBox" spacing="4"/>
+                    <Button text="+ Add Segment" onAction="#onAddSegment" styleClass="btn-ghost"/>
+                    <Label text="Algorithm" styleClass="field-label"/>
+                    <ComboBox fx:id="algoCombo" maxWidth="1.7976931348623157E308"/>
+                    <Button text="▶  Allocate Process" onAction="#onAllocate" styleClass="btn-primary" maxWidth="1.7976931348623157E308"/>
+                </VBox>
+
+                <!-- 4. Deallocate -->
+                <VBox spacing="6" styleClass="card">
+                    <Label text="4.  Deallocate Process" styleClass="card-title"/>
+                    <ComboBox fx:id="deallocCombo" maxWidth="1.7976931348623157E308" promptText="Select process"/>
+                    <Button text="✕  Deallocate" onAction="#onDeallocate" styleClass="btn-danger" maxWidth="1.7976931348623157E308"/>
+                </VBox>
+
+                <Button text="↺  Reset Everything" onAction="#onReset" styleClass="btn-ghost" maxWidth="1.7976931348623157E308"/>
+            </VBox>
+        </ScrollPane>
+    </left>
+
+    <!-- ════════ CENTER — Memory Layout ════════ -->
+    <center>
+        <VBox spacing="6" styleClass="center-panel">
+            <padding><Insets topRightBottomLeft="12"/></padding>
+            <Label text="Memory Layout" styleClass="section-title"/>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="scroll-clean">
+                <VBox fx:id="memoryBox" spacing="0" styleClass="memory-box"/>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <!-- ════════ RIGHT — Tables ════════ -->
+    <right>
+        <ScrollPane fitToWidth="true" prefWidth="360" styleClass="scroll-clean">
+            <VBox spacing="10" styleClass="tables-panel">
+                <padding><Insets topRightBottomLeft="12"/></padding>
+
+                <Label text="Segment Tables" styleClass="section-title"/>
+                <TextArea fx:id="segTablesArea" editable="false" prefRowCount="7"
+                          styleClass="mono-area" wrapText="true"/>
+
+                <Label text="Allocated Partitions" styleClass="section-title"/>
+                <TextArea fx:id="allocatedArea" editable="false" prefRowCount="5"
+                          styleClass="mono-area" wrapText="true"/>
+
+                <Label text="Free Partitions (Holes)" styleClass="section-title"/>
+                <TextArea fx:id="freeArea" editable="false" prefRowCount="4"
+                          styleClass="mono-area" wrapText="true"/>
+
+                <Label text="Event Log" styleClass="section-title"/>
+                <TextArea fx:id="logArea" editable="false" prefRowCount="5"
+                          styleClass="mono-area" wrapText="true" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </ScrollPane>
+    </right>
+</BorderPane>
